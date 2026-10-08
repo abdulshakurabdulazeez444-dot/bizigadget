@@ -1,0 +1,217 @@
+.contact-page {
+    padding: 90px 7vw;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.contact-intro h1 {
+    font-size: clamp(55px, 8vw, 105px);
+
+    line-height: 0.9;
+
+    letter-spacing: -5px;
+
+    font-weight: 600;
+
+    margin: 22px 0;
+}
+
+.contact-intro > p:last-child {
+    color: white;
+
+    max-width: 520px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   CONTACT GRID
+========================= */
+
+.contact-grid {
+    margin-top: 90px;
+
+    display: grid;
+
+    grid-template-columns: 1.2fr 0.8fr;
+
+    gap: 10vw;
+
+    border-top: 1px solid white;
+
+    padding-top: 60px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.contact-grid form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+.contact-grid label {
+    color: white;
+
+    font-size: 12px;
+}
+
+.contact-grid input,
+.contact-grid textarea {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 16px 0;
+
+    background: transparent;
+
+    border: none;
+
+    border-bottom: 1px solid white;
+
+    outline: none;
+
+    color: white;
+
+    font-family: "DM Sans";
+
+    font-size: 15px;
+
+    resize: none;
+}
+
+.contact-grid input:focus,
+.contact-grid textarea:focus {
+    border-color: white;
+}
+
+.contact-grid input::placeholder,
+.contact-grid textarea::placeholder {
+    color: white;
+}
+
+
+/* =========================
+   CONTACT INFO
+========================= */
+
+.contact-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 35px;
+}
+
+.contact-info span {
+    display: block;
+
+    color: white;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.contact-info a,
+.contact-info p {
+    font-size: 18px;
+}
+
+.contact-info a {
+    transition: 0.3s;
+}
+
+.contact-info a:hover {
+    color: var(--accent);
+}
+
+
+/* SOCIALS */
+
+.socials {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: auto;
+}
+
+.socials a {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+
+    place-items: center;
+
+    border: 1px solid var(--line);
+
+    border-radius: 50%;
+
+    font-size: 11px;
+
+    transition: 0.3s;
+}
+
+.socials a:hover {
+    background: var(--accent);
+
+    color: #000;
+
+    transform: translateY(-4px);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .contact-page {
+        padding: 70px 6vw;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 560px) {
+
+    .contact-page {
+        padding-top: 55px;
+    }
+
+    .contact-intro h1 {
+        font-size: 48px;
+
+        letter-spacing: -3px;
+    }
+
+    .contact-grid {
+        margin-top: 65px;
+    }
+}

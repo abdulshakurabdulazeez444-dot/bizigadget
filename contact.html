@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | BIZI</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/contact.css">
+
+</head>
+
+<body>
+
+    <div class="page-loader">
+        <span></span>
+    </div>
+
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+    <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="My Logo">
+    </a>
+
+    <button class="menu-btn" id="menuBtn" type="button">
+        ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="gadgets.html">Gadgets</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+</header>
+
+
+    <main class="contact-page">
+
+        <section class="contact-intro">
+
+            <p class="eyebrow">
+                LET'S CONNECT
+            </p>
+
+            <h1>
+                Have a question?
+                <br>
+                <span>Let's talk.</span>
+            </h1>
+
+            <p>
+                Need a gadget recommendation, bulk order
+                or just want to say hello?
+                Send us a message.
+            </p>
+
+        </section>
+
+
+        <section class="contact-grid">
+
+
+            <form id="whatsappForm">
+
+    <label>
+        Name
+        <input
+            type="text"
+            id="waName"
+            placeholder="Your name"
+            required
+        >
+    </label>
+
+    <label>
+        Email
+        <input
+            type="email"
+            id="waEmail"
+            placeholder="you@example.com"
+            required
+        >
+    </label>
+
+    <label>
+        Message
+        <textarea
+            id="waMessage"
+            rows="6"
+            placeholder="Tell us what's on your mind..."
+            required
+        ></textarea>
+    </label>
+
+    <button
+        type="submit"
+        class="btn primary"
+    >
+        Send Message ↗
+    </button>
+
+</form>
+
+
+            <!-- CONTACT INFORMATION -->
+
+            <div class="contact-info">
+
+                <div>
+
+                    <span>
+                        EMAIL
+                    </span>
+
+                    <a href="mailto:hello@nova.ng">
+                        hello@bizigadgets.ng
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        PHONE
+                    </span>
+
+                    <a href="tel:+2348000000000">
+                        +234 906 051 7683
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        LOCATION
+                    </span>
+
+                    <p>
+                        Lagos, Nigeria
+                    </p>
+
+                </div>
+
+
+                <div class="socials">
+
+                    <a href="https://www.instagram.com/bizibouywrld?stkn=MWxxeWU3cjI2bThmYw%3D%3D&utm_source=qr">IG</a>
+                    <a href="https://x.com/bizibouy3g?s=11">X</a>
+                    <a href="https://www.tiktok.com/@bizi.gadget?_r=1&_t=ZS-9ANvoZBuudp">TK</a>
+                    <a href="https://wa.link/1o69u9">WA</a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- <script src="js/main.js"></script> -->
+     <script>
+
+document.getElementById("whatsappForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("waName").value;
+    const email = document.getElementById("waEmail").value;
+    const message = document.getElementById("waMessage").value;
+
+    const phone = "2349060517683";
+
+    const text =
+        "Hello BIZI " 
+        "I would like to make an enquiry.%0A%0A" +
+        "Name: " + encodeURIComponent(name) + "%0A" +
+        "Email: " + encodeURIComponent(email) + "%0A%0A" +
+        "Message:%0A" + encodeURIComponent(message);
+
+    const whatsapp = "https://wa.me/" + phone + "?text=" + text;
+
+    window.location.href = whatsapp;
+
+});
+
+</script>
+
+ <script src="js/main.js"></script>
+
+</body>
+</html>
+
+</body>
+</html>

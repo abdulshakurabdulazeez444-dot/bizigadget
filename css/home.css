@@ -1,0 +1,661 @@
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: blue;
+
+    filter: blur(180px);
+
+    opacity: 0.035;
+
+    top: 10%;
+    right: -180px;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: calc(100vh - 82px);
+
+    padding: 5vh 7vw;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 3vw;
+}
+
+
+/* TEXT */
+
+.hero h1 {
+    font-size: clamp(48px, 6.3vw, 92px);
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    font-weight: 600;
+
+    margin: 22px 0;
+}
+
+.hero-description {
+    max-width: 530px;
+
+    color: white;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+}
+
+.hero-buttons {
+    margin-top: 32px;
+}
+
+.hero-buttons .secondary {
+    margin-left: 10px;
+}
+
+
+/* =========================
+   FLOATING GADGET
+========================= */
+
+.hero-gadget {
+    height: 560px;
+
+    position: relative;
+
+    display: grid;
+
+    place-items: center;
+}
+
+
+/* ORBITS */
+
+.orbit {
+    position: absolute;
+
+    border: 1px solid white;
+
+    border-radius: 50%;
+}
+
+.orbit-one {
+    width: 420px;
+    height: 190px;
+
+    transform: rotate(-30deg);
+
+    animation: orbit 8s linear infinite;
+}
+
+.orbit-two {
+    width: 330px;
+    height: 500px;
+
+    transform: rotate(-20deg);
+
+    animation: orbit 12s linear infinite reverse;
+}
+
+
+/* GLOW */
+
+.glow {
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    filter: blur(70px);
+
+    opacity: 0.12;
+}
+
+
+/* PHONE */
+
+.phone {
+    width: 145px;
+    height: 285px;
+
+    border: 5px solid white;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1d2026,
+            #08090b
+        );
+
+    box-shadow:
+        inset 0 0 0 2px white,
+        0 30px 80px white;
+
+    transform: rotate(8deg);
+
+    z-index: 2;
+
+    animation: floatingPhone 4s ease-in-out infinite;
+}
+
+
+/* PHONE SCREEN */
+
+.phone-screen {
+    margin: 8px;
+
+    height: 259px;
+
+    border-radius: 20px;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            white,
+            white 55%
+        );
+
+    padding: 22px 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.phone-screen small {
+    color: blue;
+
+    font-size: 7px;
+}
+
+.phone-screen strong {
+    font-family: "Space Grotesk";
+
+    font-size: 35px;
+
+    font-weight: 500;
+
+    margin-top: auto;
+    color: blue;
+}
+
+.phone-screen span {
+    color: blue;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+
+/* EARBUDS */
+
+.earbud {
+    position: absolute;
+
+    width: 18px;
+    height: 65px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    z-index: 3;
+
+    box-shadow: 0 15px 30px white;
+}
+
+.earbud::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -12px;
+    left: 6px;
+
+    width: 7px;
+    height: 22px;
+
+    background: white;
+
+    border-radius: 0 0 6px 6px;
+}
+
+.earbud-left {
+    left: 25px;
+    bottom: 105px;
+
+    transform: rotate(35deg);
+}
+
+.earbud-right {
+    right: 15px;
+    top: 100px;
+
+    transform: rotate(-35deg);
+}
+
+
+/* LABELS */
+
+.floating-label {
+    position: absolute;
+
+    font-family: "Space Grotesk";
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: white;
+}
+
+.label-one {
+    top: 12%;
+    right: 3%;
+}
+
+.label-two {
+    bottom: 15%;
+    left: 4%;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes floatingPhone {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(8deg);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(5deg);
+    }
+}
+
+@keyframes orbit {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================
+   TICKER
+========================= */
+
+.ticker {
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    padding: 17px 0;
+
+    color: white;
+
+    font-family: "Space Grotesk";
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+.ticker div {
+    animation: marquee 18s linear infinite;
+}
+
+@keyframes marquee {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-40%);
+    }
+}
+
+
+/* =========================
+   FEATURED
+========================= */
+
+.featured {
+    padding: 100px 7vw;
+}
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: 42px;
+
+    font-weight: 500;
+
+    margin-top: 12px;
+}
+
+.section-heading > a {
+    color: white;
+
+    font-size: 13px;
+}
+
+
+/* GRID */
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+/* CARDS */
+
+.feature-card {
+    min-height: 340px;
+
+    background: var(--panel);
+
+    border: 1px solid var(--line);
+
+    border-radius: 25px;
+
+    padding: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    position: relative;
+
+    transition: 0.4s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        blue;
+}
+
+.feature-card > span {
+    color: blue;
+
+    font-size: 12px;
+}
+
+.feature-card h3 {
+    font-size: 25px;
+
+    font-weight: 500;
+}
+
+.feature-card p {
+    color: blue;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+}
+
+
+/* PHONE CARD */
+
+.phone-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 230px;
+
+    border: 5px solid blue;
+
+    border-radius: 25px;
+
+    left: 50%;
+    top: 43%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(14deg);
+
+    background:
+        linear-gradient(
+            145deg,
+            blue,
+            blue
+        );
+
+    box-shadow: 0 20px 50px blue;
+}
+
+
+/* WATCH */
+
+.watch-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 125px;
+    height: 155px;
+
+    border: 18px solid blue;
+
+    border-radius: 38px;
+
+    left: 50%;
+    top: 45%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background: blue;
+}
+
+.watch-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 85px;
+    height: 115px;
+
+    background: rgb(38, 38, 138);
+
+    opacity: 0.12;
+
+    border-radius: 20px;
+
+    left: 50%;
+    top: 45%;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+
+/* BUDS */
+
+.buds-card::before {
+    content: "◉   ◉";
+
+    position: absolute;
+
+    font-size: 65px;
+
+    letter-spacing: 15px;
+
+    left: 50%;
+    top: 43%;
+
+    transform:
+        translate(-50%, -50%);
+
+    color: blue;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding: 70px 6vw 50px;
+
+        min-height: auto;
+    }
+
+    .hero-gadget {
+        height: 450px;
+
+        margin-top: 20px;
+    }
+
+    .orbit-one {
+        width: 330px;
+    }
+
+    .orbit-two {
+        width: 270px;
+        height: 390px;
+    }
+
+    .featured {
+        padding: 70px 6vw;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        min-height: 280px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 560px) {
+
+    .hero h1 {
+        font-size: 48px;
+
+        letter-spacing: -3px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+    }
+
+    .hero-buttons .secondary {
+        margin-left: 0;
+    }
+
+    .hero-gadget {
+        height: 390px;
+    }
+
+    .phone {
+        transform: scale(0.8);
+    }
+
+    .label-one {
+        right: 0;
+    }
+
+    .label-two {
+        left: 0;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading > a {
+        display: block;
+
+        margin-top: 18px;
+    }
+
+    .section-heading h2 {
+        font-size: 35px;
+    }
+}

@@ -1,0 +1,1227 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: blue;
+    --panel: white;
+    --text: white;
+    --muted: #144ed5;
+    --line: white;
+    --accent: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+body.leaving {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 82px;
+    padding: 0 6vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--line);
+
+    position: sticky;
+    z-index: 100;
+
+    background: blue;
+
+    backdrop-filter: blur(18px);
+}
+
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #0442fb;
+}
+.logo img{
+    width: 100%;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0)invert(1);
+}
+
+.logo span {
+    width: 31px;
+    height: 31px;
+
+    display: inline-grid;
+    place-items: center;
+
+    border: 1px solid #0400ee;
+    border-radius: 50%;
+
+    color: #0400ee;
+
+    margin-right: 7px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 34px;
+}
+
+.navbar nav a {
+    color: white;
+    font-size: 20px;
+
+    transition: 0.3s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: white;
+}
+
+
+/* MOBILE MENU */
+
+.menu-btn {
+    display: none;
+
+    background: transparent;
+    border: none;
+
+    color: white;
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.eyebrow {
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+em,
+.hero h1 span,
+.about-hero h1 span,
+.about-text h2 span,
+.catalog-header h1 span,
+.contact-intro h1 span {
+    font-style: normal;
+    color: white;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 23px;
+
+    border-radius: 50px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: 0.35s ease;
+
+    border: 1px solid transparent;
+}
+
+.btn.primary {
+    background: white;
+    color:  blue;
+}
+
+.btn.primary:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 35px white;
+}
+
+.btn.secondary {
+    border-color: white;
+}
+
+.btn.secondary:hover {
+    border-color: white;
+    color: white;
+}
+
+
+/* =========================
+   PAGE LOADER
+========================= */
+
+.page-loader {
+    position: fixed;
+
+    inset: 0;
+
+    background: blue;
+
+    z-index: 9999;
+
+    display: grid;
+    place-items: center;
+
+    animation: loader 1.1s ease forwards;
+}
+
+.page-loader span {
+    width: 38px;
+    height: 38px;
+
+    border: 2px solid blue;
+
+    border-top-color: var(--accent);
+
+    border-radius: 50%;
+
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader {
+
+    0%,
+    65% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+
+/* =========================
+   MOBILE NAV
+========================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 5vw;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .navbar nav {
+        position: sticky;
+
+        top: 82px;
+        left: 0;
+        right: 0;
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        padding: 15px 5vw;
+
+        background: rgba(3, 3, 252, 0.98);
+
+        backdrop-filter: blur(20px);
+
+        border-bottom: 1px solid var(--line);
+    }
+
+    .navbar nav.open {
+        display: flex;
+    }
+
+    .navbar nav a {
+        padding: 17px 0;
+
+        border-bottom: 1px solid var(--line);
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 560px) {
+
+    .navbar {
+        height: 72px;
+    }
+
+    .navbar nav {
+        top: 72px;
+    }
+
+    .btn {
+        padding: 14px 19px;
+    }
+}
+/* =====================================================
+   GADGETHUB — GLOBAL CSS
+   Fully Responsive: Mobile • Tablet • Laptop • Desktop
+   ===================================================== */
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: blue;
+    color: #ffffff;
+
+    overflow-x: hidden;
+
+    animation: pageEnter 0.6s ease both;
+}
+
+
+/* Prevent oversized elements */
+
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* Links */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* Buttons */
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* =========================
+   PAGE TRANSITION
+========================= */
+
+@keyframes pageEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: min(90%, 1200px);
+    margin-inline: auto;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    min-height: 80px;
+
+    padding-inline: clamp(20px, 6vw, 90px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+
+    background: blue;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid white;
+}
+
+
+/* LOGO */
+
+.logo {
+    flex-shrink: 0;
+
+    font-size: clamp(21px, 2vw, 27px);
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #ffffff;
+}
+
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: clamp(18px, 3vw, 38px);
+}
+
+nav a {
+    position: relative;
+
+    color: #999;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    padding: 8px 0;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: #feffff;
+
+    transition: width 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: #fcffff;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+
+/* MOBILE MENU BUTTON */
+
+.menu-btn {
+    display: block;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #292929;
+    border-radius: 8px;
+
+    background: blue;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 23px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    width: 100%;
+    min-height: 70vh;
+}
+
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header {
+    width: min(90%, 850px);
+
+    margin-inline: auto;
+
+    text-align: center;
+
+    padding:
+        clamp(70px, 10vw, 120px)
+        0
+        clamp(50px, 7vw, 80px);
+}
+
+.page-header h1 {
+    font-size: clamp(38px, 7vw, 75px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 20px;
+}
+
+.page-header p {
+    color: #999;
+
+    font-size: clamp(14px, 2vw, 17px);
+
+    line-height: 1.8;
+}
+
+.page-header p:first-child {
+    color: #00e5ff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+section {
+    width: 100%;
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: clamp(30px, 5vw, 50px);
+}
+
+.section-heading p {
+    color: #00e5ff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    font-size: clamp(30px, 5vw, 48px);
+
+    line-height: 1.1;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 13px 24px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    border: 1px solid transparent;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.primary-btn {
+    background: #00e5ff;
+    color: #000;
+}
+
+.primary-btn:hover {
+    box-shadow:
+        0 10px 30px rgba(0, 229, 255, 0.25);
+}
+
+.secondary-btn {
+    background: transparent;
+
+    border-color: #333;
+
+    color: #fff;
+}
+
+.secondary-btn:hover {
+    background: #151515;
+}
+
+
+/* =========================
+   GRIDS
+========================= */
+
+.product-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: clamp(16px, 2.5vw, 28px);
+}
+
+
+.category-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: clamp(15px, 2vw, 25px);
+}
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.product-card {
+    width: 100%;
+
+    min-width: 0;
+
+    background: #111;
+
+    border: 1px solid #222;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #00e5ff;
+
+    box-shadow:
+        0 15px 45px rgba(0, 229, 255, 0.08);
+}
+
+
+/* PRODUCT IMAGE */
+
+.product-image {
+    width: 100%;
+
+    min-height: 220px;
+
+    aspect-ratio: 1 / 0.8;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #151515;
+
+    font-size: clamp(55px, 8vw, 90px);
+
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+
+/* PRODUCT INFO */
+
+.product-info {
+    padding: clamp(18px, 3vw, 26px);
+}
+
+.product-info h3 {
+    font-size: clamp(17px, 2vw, 21px);
+
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    color: #888;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+}
+
+.product-info strong {
+    color: #00e5ff;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   CATEGORY CARD
+========================= */
+
+.category-card {
+    width: 100%;
+
+    padding: clamp(20px, 3vw, 30px);
+
+    background: #111;
+
+    border: 1px solid #222;
+
+    border-radius: 15px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #00e5ff;
+}
+
+.category-icon {
+    font-size: clamp(35px, 5vw, 48px);
+
+    margin-bottom: 20px;
+}
+
+.category-card h3 {
+    margin-bottom: 8px;
+
+    font-size: 18px;
+}
+
+.category-card p {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FORMS
+========================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 14px 16px;
+
+    background: #090909;
+
+    border: 1px solid #292929;
+
+    border-radius: 8px;
+
+    color: white;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #00e5ff;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 229, 255, 0.08);
+}
+
+textarea {
+    resize: vertical;
+
+    min-height: 140px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    width: 100%;
+
+    margin-top: 70px;
+
+    padding:
+        30px
+        20px;
+
+    text-align: center;
+
+    color: #666;
+
+    font-size: 14px;
+
+    border-top: 1px solid #202020;
+}
+
+
+/* =====================================================
+   TABLET
+   768px — 1024px
+===================================================== */
+
+@media (max-width: 1024px) {
+
+    .navbar {
+        padding-inline: 5%;
+    }
+
+    .product-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .category-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================
+   MOBILE NAVIGATION
+   ========================================= */
+
+.menu-btn {
+    display: none;
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid white;
+    border-radius: 8px;
+
+    background: transparent;
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 23px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* TABLET + MOBILE */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        position: sticky;
+        top: 0;
+        min-height: 70px;
+        padding-inline: 5%;
+    }
+
+    .menu-btn {
+        display: flex;
+        position: relative;
+        z-index: 10001;
+    }
+
+    .navbar nav {
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 0;
+
+        background: blue;
+
+        border-bottom: 1px solid white;
+
+        z-index: 10000;
+    }
+
+    /* THIS IS THE IMPORTANT PART */
+    .navbar nav.active {
+        display: flex;
+        animation: menuOpen 0.3s ease;
+    }
+
+    .navbar nav a {
+        width: 100%;
+        padding: 17px 5%;
+
+        border-bottom: 1px solid white;
+
+        color: white;
+    }
+
+    .navbar nav a::after {
+        display: none;
+    }
+}
+
+
+/* MENU ANIMATION */
+
+@keyframes menuOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* SMALL PHONES */
+
+@media (max-width: 560px) {
+
+    .navbar {
+        min-height: 72px;
+    }
+
+    .navbar nav {
+        top: 72px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+   480px
+===================================================== */
+
+@media (max-width: 480px) {
+
+    html {
+        font-size: 15px;
+    }
+
+
+    .navbar {
+        padding-inline: 18px;
+    }
+
+
+    .logo {
+        font-size: 21px;
+    }
+
+
+    .page-header h1 {
+        font-size: 38px;
+
+        letter-spacing: -1.5px;
+    }
+
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+
+    .btn {
+        width: 100%;
+
+        min-height: 50px;
+    }
+
+
+    .hero-buttons {
+        width: 100%;
+    }
+
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+
+    .product-info {
+        padding: 20px;
+    }
+
+
+    .category-card {
+        padding: 22px;
+    }
+
+
+    footer {
+        margin-top: 50px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+   360px
+===================================================== */
+
+@media (max-width: 360px) {
+
+    .navbar {
+        padding-inline: 14px;
+    }
+
+
+    .logo {
+        font-size: 19px;
+    }
+
+
+    .menu-btn {
+        width: 38px;
+        height: 38px;
+
+        font-size: 20px;
+    }
+
+
+    .page-header h1 {
+        font-size: 34px;
+    }
+
+
+    .product-image {
+        min-height: 200px;
+    }
+
+}
+
+
+/* =====================================================
+   LARGE DESKTOP
+   1400px+
+===================================================== */
+
+@media (min-width: 1400px) {
+
+    .navbar {
+        padding-inline: 8%;
+    }
+
+
+    .product-grid {
+        gap: 30px;
+    }
+
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid #00e5ff;
+
+    outline-offset: 3px;
+}
+
+
+/* =====================================================
+   REDUCE ANIMATION FOR USERS WHO PREFER IT
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+}
